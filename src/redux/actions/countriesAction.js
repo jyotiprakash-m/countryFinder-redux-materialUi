@@ -1,19 +1,19 @@
 import { ActionTypes } from "../constants/action-types";
 
-export const setProducts = (products) => {
+export const setCountries = (countries) => {
     return {
         type: ActionTypes.SET_COUNTRIES,
-        payload: products,
+        payload: countries,
     };
 };
 
-export const selectedProduct = (product) => {
+export const selectedCountry = (country) => {
     return {
         type: ActionTypes.SELECTED_COUNTRY,
-        payload: product,
+        payload: country,
     };
 };
-export const removeSelectedProduct = () => {
+export const removeSelectedCountry = () => {
     return {
         type: ActionTypes.REMOVE_SELECTED_COUNTRY,
     };
