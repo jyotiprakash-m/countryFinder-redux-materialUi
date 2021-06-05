@@ -31,7 +31,7 @@ function CountryComponent() {
             <Grid item key={alpha3Code}>
                 <Paper>
                     <Card className={classes.imagecard}>
-                        <CardActionArea href="#" target="_blank">
+                        <CardActionArea href={`/country/${alpha3Code}`}>
                             <CardMedia
                                 className={classes.imageHeight}
                                 component="img"
