@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector } from "react-redux";
-
 import { makeStyles } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -17,6 +16,11 @@ const useStyles = makeStyles((theme) => ({
     },
     imageHeight: {
         height: 180
+    },
+    loading: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
     }
 
 }));
@@ -54,7 +58,9 @@ function CountryComponent() {
         <Grid container lg spacing={2}>
             <Grid item xs={12}>
                 <Grid container justify="center" spacing={2}>
-                    {renderList}
+                    {Object.keys(countries).length === 0 ? (
+                        <Grid className={classes.loading}><Typography variant="h3">Loading...</Typography></Grid>
+                    ) : (renderList)}
                 </Grid>
             </Grid>
         </Grid>

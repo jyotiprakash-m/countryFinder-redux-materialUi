@@ -3,7 +3,6 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 import Container from '@material-ui/core/Container';
@@ -64,7 +63,7 @@ function CountryDetails() {
 
     const { cId } = useParams();
     let country = useSelector((state) => state.country);
-    const { name, nativeName, alpha3Code, capital, population, region, subregion, latlng, area, borders, currencies, flag, demonym, altSpellings, translations } = country;
+    const { name, nativeName, alpha3Code, capital, population, region, subregion, latlng, area, borders, currencies, flag, demonym, altSpellings } = country;
     const dispatch = useDispatch();
     const fetchCountryDetail = async (cId) => {
         const response = await axios
@@ -103,6 +102,7 @@ function CountryDetails() {
                     <Grid item xs={12} sm={6} className={classes.rightCard}>
                         <Typography variant="h4" className={classes.heading}>{name} ({nativeName})</Typography>
                         <Typography variant="h6" className={classes.information}><span className={classes.informationLabel}>Capital: </span>{capital}</Typography>
+                        <Typography variant="h6" className={classes.information}><span className={classes.informationLabel}>Country Code: </span>{alpha3Code}</Typography>
                         <Typography variant="h6" className={classes.information}><span className={classes.informationLabel}>Demonym: </span>{demonym}</Typography>
                         <Typography variant="h6" className={classes.information}><span className={classes.informationLabel}>Alt Spellings: </span>
 
@@ -121,7 +121,7 @@ function CountryDetails() {
                             {latlng && latlng.map((value, index) => {
                                 return (
                                     <span key={value}>
-                                        {index == 0 && value}
+                                        {index === 0 && value}
                                     </span>
                                 )
                             })}
@@ -130,7 +130,7 @@ function CountryDetails() {
                             {latlng && latlng.map((value, index) => {
                                 return (
                                     <span key={value}>
-                                        {index == 1 && value}
+                                        {index === 1 && value}
                                     </span>
                                 )
                             })}
