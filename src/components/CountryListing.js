@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 function CountryListing() {
     const classes = useStyles();
-    const [api, setApi] = useState("")
+    const [api, setApi] = useState("https://restcountries.eu/rest/v2/all")
     const [inputValue, setInputValue] = useState("")
     const countries = useSelector((state) => state.allCountries.countries);
     const dispatch = useDispatch();
@@ -57,7 +57,6 @@ function CountryListing() {
                 justify="center"
             >
                 <TextField
-                    value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     label="Country"
                     placeholder="Enter country name"
