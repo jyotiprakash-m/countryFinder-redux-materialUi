@@ -30,7 +30,7 @@ function CountryComponent() {
     const countries = useSelector((state) => state.allCountries.countries);
 
     const renderList = countries.map((country) => {
-        const { flag, alpha3Code, name } = country;
+        const { flag, alpha3Code, name, capital } = country;
         return (
             <Grid item key={alpha3Code}>
                 <Paper>
@@ -47,6 +47,9 @@ function CountryComponent() {
                                 <Typography gutterBottom variant="h6" component="h2">
                                     {name}
                                 </Typography>
+                                <Typography variant="p" component="p">
+                                    Capital: {capital}
+                                </Typography>
                             </CardContent>
                         </CardActionArea>
                     </Card>
@@ -55,7 +58,7 @@ function CountryComponent() {
         );
     });
     return (
-        <Grid container lg spacing={2}>
+        <Grid style={{ backgroundColor: '#f5f5f5', paddingTop: '2vh' }} container lg spacing={2}>
             <Grid item xs={12}>
                 <Grid container justify="center" spacing={2}>
                     {Object.keys(countries).length === 0 ? (

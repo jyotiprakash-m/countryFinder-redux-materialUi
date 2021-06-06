@@ -51,12 +51,14 @@ function CountryListing() {
     return (
         <div>
             <Grid
+                style={{ backgroundColor: '#f5f5f5' }}
                 container
                 direction="column"
                 alignItems="center"
                 justify="center"
             >
                 <TextField
+                    value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     label="Country"
                     placeholder="Enter country name"

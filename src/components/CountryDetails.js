@@ -8,6 +8,7 @@ import { Typography } from "@material-ui/core";
 import Container from '@material-ui/core/Container';
 import MapIcon from '@material-ui/icons/Map';
 import Button from '@material-ui/core/Button';
+import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import {
     selectedCountry,
     removeSelectedCountry,
@@ -86,6 +87,11 @@ function CountryDetails() {
                 <Grid className={classes.loading}><Typography variant="h3">Loading...</Typography></Grid>
             ) : (
                 <Grid container sm spacing={2}>
+                    <Grid item xs={12}>
+                        <Button startIcon={<KeyboardBackspaceIcon />} onClick={(e) => { window.history.back(); }} variant="outlined" color="primary">
+                            Go back
+                        </Button>
+                    </Grid>
                     <Grid item xs={12} sm={6} className={classes.leftCard}>
                         <img src={flag} alt={name} className={classes.image} />
                         <Button
