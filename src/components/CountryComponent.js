@@ -58,7 +58,7 @@ function CountryComponent() {
         );
     });
     return (
-        <Grid style={{ backgroundColor: '#f5f5f5', paddingTop: '2vh' }} container lg spacing={2}>
+        <Grid style={{ backgroundColor: '#f5f5f5', paddingTop: '2vh', minHeight: '100vh' }} container lg spacing={2}>
             <Grid item xs={12}>
                 <Grid container justify="center" spacing={2}>
                     {Object.keys(countries).length === 0 ? (
