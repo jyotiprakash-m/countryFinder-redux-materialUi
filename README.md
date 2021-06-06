@@ -28,6 +28,6 @@ Some Screenshots of the project
 
 
 ## Live on
-I host this application on netlify.com .
+I host this application on vercel.com .
 
 > [https://country-finder-app-hazel.vercel.app](https://country-finder-app-hazel.vercel.app)
