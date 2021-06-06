@@ -27,25 +27,26 @@ function CountryListing() {
     const countries = useSelector((state) => state.allCountries.countries);
     const inputValue = useSelector((state) => state.inputVal.inputValue);
     const dispatch = useDispatch();
-    const fetchCountries = async (api) => {
-        const response = await axios
-            .get(api)
-            .catch((err) => {
-                console.log("Err: ", err);
-            });
-        console.log(response)
-        if (response !== undefined) {
-            dispatch(setCountries(response.data));
-        }
-    };
+
     useEffect(() => {
+        const fetchCountries = async (api) => {
+            const response = await axios
+                .get(api)
+                .catch((err) => {
+                    console.log("Err: ", err);
+                });
+            console.log(response)
+            if (response !== undefined) {
+                dispatch(setCountries(response.data));
+            }
+        };
         if (inputValue === null || inputValue === "") {
             setApi("https://restcountries.eu/rest/v2/all")
         } else {
             setApi(`https://restcountries.eu/rest/v2/name/${inputValue}`)
         }
         fetchCountries(api);
-    }, [api, inputValue]);
+    }, [api, inputValue, dispatch]);
 
     console.log("Countries :", countries);
     return (

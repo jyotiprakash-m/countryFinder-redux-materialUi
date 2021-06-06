@@ -66,20 +66,21 @@ function CountryDetails() {
     let country = useSelector((state) => state.country);
     const { name, nativeName, alpha3Code, capital, population, region, subregion, latlng, area, borders, currencies, flag, demonym, altSpellings } = country;
     const dispatch = useDispatch();
-    const fetchCountryDetail = async (cId) => {
-        const response = await axios
-            .get(`https://restcountries.eu/rest/v2/alpha/${cId}`)
-            .catch((err) => {
-                console.log("Err: ", err);
-            });
-        dispatch(selectedCountry(response.data));
-    };
+
     useEffect(() => {
+        const fetchCountryDetail = async (cId) => {
+            const response = await axios
+                .get(`https://restcountries.eu/rest/v2/alpha/${cId}`)
+                .catch((err) => {
+                    console.log("Err: ", err);
+                });
+            dispatch(selectedCountry(response.data));
+        };
         if (cId && cId !== "") fetchCountryDetail(cId);
         return () => {
             dispatch(removeSelectedCountry());
         };
-    }, [cId]);
+    }, [cId, dispatch]);
     console.log(country)
     return (
         <Container maxWidth="lg" className={classes.countryDetailContainer}>
