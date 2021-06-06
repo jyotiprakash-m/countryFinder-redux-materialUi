@@ -20,7 +20,14 @@ $ npm install
 $ npm start
 
 ```
+## Screenshots
+Some Screenshots of the project
+<img src="./public/image1.png" title="Country Details">
+<img src="./public/image2.png" title="Find Country">
+<img src="./public/image3.png" width="350" alt="Moile View">
+
+
 ## Live on
 I host this application on netlify.com .
-<!-- 
-> [https://react-auth-check.netlify.app](https://react-auth-check.netlify.app/) -->
+
+> [https://country-finder-app-hazel.vercel.app](https://country-finder-app-hazel.vercel.app)
