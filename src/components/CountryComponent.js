@@ -11,7 +11,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 
 const useStyles = makeStyles((theme) => ({
     imagecard: {
-        maxWidth: 300,
+        width: 300,
         overflowX: "hidden",
     },
     imageHeight: {
