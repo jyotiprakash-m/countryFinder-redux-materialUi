@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setCountries } from "../redux/actions/countriesAction";
+import { setCountries, setInputValue } from "../redux/actions/countriesAction";
 import CountryComponent from "./CountryComponent";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
 function CountryListing() {
     const classes = useStyles();
     const [api, setApi] = useState("https://restcountries.eu/rest/v2/all")
-    const [inputValue, setInputValue] = useState("")
     const countries = useSelector((state) => state.allCountries.countries);
+    const inputValue = useSelector((state) => state.inputVal.inputValue);
     const dispatch = useDispatch();
     const fetchCountries = async (api) => {
         const response = await axios
@@ -59,7 +59,7 @@ function CountryListing() {
             >
                 <TextField
                     value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
+                    onChange={(e) => dispatch(setInputValue(e.target.value))}
                     label="Country"
                     placeholder="Enter country name"
                     className={classes.inputWidth}

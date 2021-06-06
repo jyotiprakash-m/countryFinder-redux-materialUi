@@ -6,6 +6,12 @@ export const setCountries = (countries) => {
         payload: countries,
     };
 };
+export const setInputValue = (inputValue) => {
+    return {
+        type: ActionTypes.SET_INPUT,
+        payload: inputValue,
+    };
+};
 
 export const selectedCountry = (country) => {
     return {
